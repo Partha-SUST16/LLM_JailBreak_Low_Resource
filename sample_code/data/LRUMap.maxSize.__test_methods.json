@@ -1,0 +1,340 @@
+{
+  "candidateMethod" : "org.apache.commons.collections4.map.LRUMap.maxSize()",
+  "testMethods" : [ {
+    "className" : "org.apache.commons.collections4.map.LRUMapTest",
+    "methodName" : "testLRU",
+    "methodSignature" : "()",
+    "id" : "org.apache.commons.collections4.map.LRUMapTest.testLRU()",
+    "shortestPath" : [ {
+      "className" : "org.apache.commons.collections4.map.AbstractMapTest",
+      "methodName" : "isPutAddSupported",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractMapTest.isPutAddSupported()",
+      "children" : [ ],
+      "sourceCode" : "public boolean isPutAddSupported() {\n    return true;\n}",
+      "javadoc" : "/**\n * Returns true if the maps produced by {@link #makeObject()} and {@link #makeFullMap()} support the {@link Map#put(Object, Object)} and\n * {@link Map#putAll(Map)} operations adding new mappings.\n * <p>\n * Default implementation returns true. Override if your collection class does not support put adding.\n * </p>\n *\n * @return true by default.\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractMapTest",
+      "methodName" : "isPutChangeSupported",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractMapTest.isPutChangeSupported()",
+      "children" : [ ],
+      "sourceCode" : "public boolean isPutChangeSupported() {\n    return true;\n}",
+      "javadoc" : "/**\n * Returns true if the maps produced by {@link #makeObject()} and {@link #makeFullMap()} support the {@link Map#put(Object, Object)} and\n * {@link Map#putAll(Map)} operations changing existing mappings.\n * <p>\n * Default implementation returns true. Override if your collection class does not support put changing.\n * </p>\n *\n * @return true by default.\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractOrderedMapTest",
+      "methodName" : "getSampleKeys",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractOrderedMapTest.getSampleKeys()",
+      "children" : [ ],
+      "sourceCode" : "@Override\n@SuppressWarnings(\"unchecked\")\npublic K[] getSampleKeys() {\n    final List<K> list = new ArrayList<>(Arrays.asList(super.getSampleKeys()));\n    list.sort(new NullComparator<>());\n    return (K[]) list.toArray();\n}",
+      "javadoc" : "/**\n * The only confirmed collection we have that is ordered is the sorted one. Thus, sort the keys.\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractMapTest",
+      "methodName" : "getSampleValues",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractMapTest.getSampleValues()",
+      "children" : [ ],
+      "sourceCode" : "@SuppressWarnings(\"unchecked\")\npublic V[] getSampleValues() {\n    final Object[] result = { \"blahv\", \"foov\", \"barv\", \"bazv\", \"tmpv\", \"goshv\", \"gollyv\", \"geev\", \"hellov\", \"goodbyev\", \"we'llv\", \"seev\", \"youv\", \"allv\", \"againv\", isAllowNullValue() ? null : \"nonnullvalue\", \"value\", isAllowDuplicateValues() ? \"value\" : \"value2\" };\n    return (V[]) result;\n}",
+      "javadoc" : "/**\n * Returns the set of values in the mappings used to test the map. This method must return an array with the same length as {@link #getSampleKeys()}. The\n * default implementation constructs a set of String values and includes a single null value if {@link #isAllowNullValue()} returns {@code true}, and\n * includes two values that are the same if {@link #isAllowDuplicateValues()} returns {@code true}.\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateNewCapacity",
+      "methodSignature" : "(int)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateNewCapacity(int)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateNewCapacity(final int proposedCapacity) {\n    int newCapacity = 1;\n    if (proposedCapacity > MAXIMUM_CAPACITY) {\n        newCapacity = MAXIMUM_CAPACITY;\n    } else {\n        while (newCapacity < proposedCapacity) {\n            // multiply by two\n            newCapacity <<= 1;\n        }\n        if (newCapacity > MAXIMUM_CAPACITY) {\n            newCapacity = MAXIMUM_CAPACITY;\n        }\n    }\n    return newCapacity;\n}",
+      "javadoc" : "/**\n * Calculates the new capacity of the map.\n * This implementation normalizes the capacity to a power of two.\n *\n * @param proposedCapacity  the proposed capacity\n * @return the normalized new capacity\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateThreshold",
+      "methodSignature" : "(int,float)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateThreshold(int,float)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateThreshold(final int newCapacity, final float factor) {\n    return (int) (newCapacity * factor);\n}",
+      "javadoc" : "/**\n * Calculates the new threshold of the map, where it will be resized.\n * This implementation uses the load factor.\n *\n * @param newCapacity  the new capacity\n * @param factor  the load factor\n * @return the new resize threshold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractLinkedMap",
+      "methodName" : "init",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractLinkedMap.init()",
+      "children" : [ ],
+      "sourceCode" : "@Override\nprotected void init() {\n    header = createEntry(null, -1, null, null);\n    header.before = header.after = header;\n}",
+      "javadoc" : "/**\n * Initialize this subclass during construction.\n * <p>\n * Note: As from v3.2 this method calls\n * {@link #createEntry(HashEntry, int, Object, Object)} to create\n * the map entry object.\n * </p>\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "size",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.size()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int size() {\n    return size;\n}",
+      "javadoc" : "/**\n * Gets the size of the map.\n *\n * @return the size\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.LRUMap",
+      "methodName" : "isFull",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.LRUMap.isFull()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic boolean isFull() {\n    return size >= maxSize;\n}",
+      "javadoc" : "/**\n * Returns true if this map is full and no new mappings can be added.\n *\n * @return {@code true} if the map is full\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.LRUMap",
+      "methodName" : "maxSize",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.LRUMap.maxSize()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int maxSize() {\n    return maxSize;\n}",
+      "javadoc" : "/**\n * Gets the maximum size of the map (the bound).\n *\n * @return the maximum number of elements the map can hold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "put",
+      "methodSignature" : "(java.lang.Object,java.lang.Object)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.put(java.lang.Object,java.lang.Object)",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic V put(final K key, final V value) {\n    final Object convertedKey = convertKey(key);\n    final int hashCode = hash(convertedKey);\n    final int index = hashIndex(hashCode, data.length);\n    HashEntry<K, V> entry = data[index];\n    while (entry != null) {\n        if (entry.hashCode == hashCode && isEqualKey(convertedKey, entry.key)) {\n            final V oldValue = entry.getValue();\n            updateEntry(entry, value);\n            return oldValue;\n        }\n        entry = entry.next;\n    }\n    addMapping(index, hashCode, key, value);\n    return null;\n}",
+      "javadoc" : "/**\n * Puts a key-value mapping into this map.\n *\n * @param key  the key to add\n * @param value  the value to add\n * @return the value previously mapped to this key, null if none\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "keySet",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.keySet()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic Set<K> keySet() {\n    if (keySet == null) {\n        keySet = new KeySet<>(this);\n    }\n    return keySet;\n}",
+      "javadoc" : "/**\n * Gets the keySet view of the map.\n * Changes made to the view affect this map.\n * To simply iterate through the keys, use {@link #mapIterator()}.\n *\n * @return the keySet view\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap$KeySet",
+      "methodName" : "iterator",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap$KeySet.iterator()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic Iterator<K> iterator() {\n    return parent.createKeySetIterator();\n}",
+      "javadoc" : ""
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractLinkedMap$KeySetIterator",
+      "methodName" : "next",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractLinkedMap$KeySetIterator.next()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic K next() {\n    return super.nextEntry().getKey();\n}",
+      "javadoc" : ""
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "values",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.values()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic Collection<V> values() {\n    if (values == null) {\n        values = new Values<>(this);\n    }\n    return values;\n}",
+      "javadoc" : "/**\n * Gets the values view of the map.\n * Changes made to the view affect this map.\n * To simply iterate through the values, use {@link #mapIterator()}.\n *\n * @return the values view\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap$Values",
+      "methodName" : "iterator",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap$Values.iterator()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic Iterator<V> iterator() {\n    return parent.createValuesIterator();\n}",
+      "javadoc" : ""
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractLinkedMap$ValuesIterator",
+      "methodName" : "next",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractLinkedMap$ValuesIterator.next()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic V next() {\n    return super.nextEntry().getValue();\n}",
+      "javadoc" : ""
+    } ],
+    "sourceCode" : "@Test\nvoid testLRU() {\n    if (!isPutAddSupported() || !isPutChangeSupported()) {\n        return;\n    }\n    final K[] keys = getSampleKeys();\n    final V[] values = getSampleValues();\n    Iterator<K> kit;\n    Iterator<V> vit;\n    final LRUMap<K, V> map = new LRUMap<>(2);\n    assertEquals(0, map.size());\n    assertFalse(map.isFull());\n    assertEquals(2, map.maxSize());\n    map.put(keys[0], values[0]);\n    assertEquals(1, map.size());\n    assertFalse(map.isFull());\n    assertEquals(2, map.maxSize());\n    map.put(keys[1], values[1]);\n    assertEquals(2, map.size());\n    assertTrue(map.isFull());\n    assertEquals(2, map.maxSize());\n    kit = map.keySet().iterator();\n    assertSame(keys[0], kit.next());\n    assertSame(keys[1], kit.next());\n    vit = map.values().iterator();\n    assertSame(values[0], vit.next());\n    assertSame(values[1], vit.next());\n    map.put(keys[2], values[2]);\n    assertEquals(2, map.size());\n    assertTrue(map.isFull());\n    assertEquals(2, map.maxSize());\n    kit = map.keySet().iterator();\n    assertSame(keys[1], kit.next());\n    assertSame(keys[2], kit.next());\n    vit = map.values().iterator();\n    assertSame(values[1], vit.next());\n    assertSame(values[2], vit.next());\n    map.put(keys[2], values[0]);\n    assertEquals(2, map.size());\n    assertTrue(map.isFull());\n    assertEquals(2, map.maxSize());\n    kit = map.keySet().iterator();\n    assertSame(keys[1], kit.next());\n    assertSame(keys[2], kit.next());\n    vit = map.values().iterator();\n    assertSame(values[1], vit.next());\n    assertSame(values[0], vit.next());\n    map.put(keys[1], values[3]);\n    assertEquals(2, map.size());\n    assertTrue(map.isFull());\n    assertEquals(2, map.maxSize());\n    kit = map.keySet().iterator();\n    assertSame(keys[2], kit.next());\n    assertSame(keys[1], kit.next());\n    vit = map.values().iterator();\n    assertSame(values[0], vit.next());\n    assertSame(values[3], vit.next());\n}",
+    "javadoc" : ""
+  }, {
+    "className" : "org.apache.commons.collections4.map.LRUMapTest",
+    "methodName" : "testRemoveLRUFirstBlocksRemove",
+    "methodSignature" : "()",
+    "id" : "org.apache.commons.collections4.map.LRUMapTest.testRemoveLRUFirstBlocksRemove()",
+    "shortestPath" : [ {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateNewCapacity",
+      "methodSignature" : "(int)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateNewCapacity(int)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateNewCapacity(final int proposedCapacity) {\n    int newCapacity = 1;\n    if (proposedCapacity > MAXIMUM_CAPACITY) {\n        newCapacity = MAXIMUM_CAPACITY;\n    } else {\n        while (newCapacity < proposedCapacity) {\n            // multiply by two\n            newCapacity <<= 1;\n        }\n        if (newCapacity > MAXIMUM_CAPACITY) {\n            newCapacity = MAXIMUM_CAPACITY;\n        }\n    }\n    return newCapacity;\n}",
+      "javadoc" : "/**\n * Calculates the new capacity of the map.\n * This implementation normalizes the capacity to a power of two.\n *\n * @param proposedCapacity  the proposed capacity\n * @return the normalized new capacity\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateThreshold",
+      "methodSignature" : "(int,float)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateThreshold(int,float)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateThreshold(final int newCapacity, final float factor) {\n    return (int) (newCapacity * factor);\n}",
+      "javadoc" : "/**\n * Calculates the new threshold of the map, where it will be resized.\n * This implementation uses the load factor.\n *\n * @param newCapacity  the new capacity\n * @param factor  the load factor\n * @return the new resize threshold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractLinkedMap",
+      "methodName" : "init",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractLinkedMap.init()",
+      "children" : [ ],
+      "sourceCode" : "@Override\nprotected void init() {\n    header = createEntry(null, -1, null, null);\n    header.before = header.after = header;\n}",
+      "javadoc" : "/**\n * Initialize this subclass during construction.\n * <p>\n * Note: As from v3.2 this method calls\n * {@link #createEntry(HashEntry, int, Object, Object)} to create\n * the map entry object.\n * </p>\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "size",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.size()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int size() {\n    return size;\n}",
+      "javadoc" : "/**\n * Gets the size of the map.\n *\n * @return the size\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "put",
+      "methodSignature" : "(java.lang.Object,java.lang.Object)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.put(java.lang.Object,java.lang.Object)",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic V put(final K key, final V value) {\n    final Object convertedKey = convertKey(key);\n    final int hashCode = hash(convertedKey);\n    final int index = hashIndex(hashCode, data.length);\n    HashEntry<K, V> entry = data[index];\n    while (entry != null) {\n        if (entry.hashCode == hashCode && isEqualKey(convertedKey, entry.key)) {\n            final V oldValue = entry.getValue();\n            updateEntry(entry, value);\n            return oldValue;\n        }\n        entry = entry.next;\n    }\n    addMapping(index, hashCode, key, value);\n    return null;\n}",
+      "javadoc" : "/**\n * Puts a key-value mapping into this map.\n *\n * @param key  the key to add\n * @param value  the value to add\n * @return the value previously mapped to this key, null if none\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.LRUMap",
+      "methodName" : "maxSize",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.LRUMap.maxSize()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int maxSize() {\n    return maxSize;\n}",
+      "javadoc" : "/**\n * Gets the maximum size of the map (the bound).\n *\n * @return the maximum number of elements the map can hold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "containsKey",
+      "methodSignature" : "(java.lang.Object)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.containsKey(java.lang.Object)",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic boolean containsKey(Object key) {\n    key = convertKey(key);\n    final int hashCode = hash(key);\n    // no local for hash index\n    HashEntry<K, V> entry = data[hashIndex(hashCode, data.length)];\n    while (entry != null) {\n        if (entry.hashCode == hashCode && isEqualKey(key, entry.key)) {\n            return true;\n        }\n        entry = entry.next;\n    }\n    return false;\n}",
+      "javadoc" : "/**\n * Checks whether the map contains the specified key.\n *\n * @param key  the key to search for\n * @return true if the map contains the key\n */\n"
+    } ],
+    "sourceCode" : "@Test\n@SuppressWarnings(\"unchecked\")\nvoid testRemoveLRUFirstBlocksRemove() {\n    final MockLRUMapSubclassFirstBlocksRemove<K, V> map = new MockLRUMapSubclassFirstBlocksRemove<>(2);\n    assertEquals(0, map.size());\n    map.put((K) \"A\", (V) \"a\");\n    assertEquals(1, map.size());\n    map.put((K) \"B\", (V) \"b\");\n    assertEquals(2, map.size());\n    // should remove oldest, which is A=a  but this is blocked - so advance to B=b\n    map.put((K) \"C\", (V) \"c\");\n    assertEquals(2, map.size());\n    assertEquals(2, map.maxSize());\n    assertTrue(map.containsKey(\"A\"));\n    assertFalse(map.containsKey(\"B\"));\n    assertTrue(map.containsKey(\"C\"));\n}",
+    "javadoc" : ""
+  }, {
+    "className" : "org.apache.commons.collections4.map.LRUMapTest",
+    "methodName" : "testRemoveLRUBlocksRemove",
+    "methodSignature" : "()",
+    "id" : "org.apache.commons.collections4.map.LRUMapTest.testRemoveLRUBlocksRemove()",
+    "shortestPath" : [ {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateNewCapacity",
+      "methodSignature" : "(int)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateNewCapacity(int)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateNewCapacity(final int proposedCapacity) {\n    int newCapacity = 1;\n    if (proposedCapacity > MAXIMUM_CAPACITY) {\n        newCapacity = MAXIMUM_CAPACITY;\n    } else {\n        while (newCapacity < proposedCapacity) {\n            // multiply by two\n            newCapacity <<= 1;\n        }\n        if (newCapacity > MAXIMUM_CAPACITY) {\n            newCapacity = MAXIMUM_CAPACITY;\n        }\n    }\n    return newCapacity;\n}",
+      "javadoc" : "/**\n * Calculates the new capacity of the map.\n * This implementation normalizes the capacity to a power of two.\n *\n * @param proposedCapacity  the proposed capacity\n * @return the normalized new capacity\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateThreshold",
+      "methodSignature" : "(int,float)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateThreshold(int,float)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateThreshold(final int newCapacity, final float factor) {\n    return (int) (newCapacity * factor);\n}",
+      "javadoc" : "/**\n * Calculates the new threshold of the map, where it will be resized.\n * This implementation uses the load factor.\n *\n * @param newCapacity  the new capacity\n * @param factor  the load factor\n * @return the new resize threshold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractLinkedMap",
+      "methodName" : "init",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractLinkedMap.init()",
+      "children" : [ ],
+      "sourceCode" : "@Override\nprotected void init() {\n    header = createEntry(null, -1, null, null);\n    header.before = header.after = header;\n}",
+      "javadoc" : "/**\n * Initialize this subclass during construction.\n * <p>\n * Note: As from v3.2 this method calls\n * {@link #createEntry(HashEntry, int, Object, Object)} to create\n * the map entry object.\n * </p>\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "size",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.size()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int size() {\n    return size;\n}",
+      "javadoc" : "/**\n * Gets the size of the map.\n *\n * @return the size\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "put",
+      "methodSignature" : "(java.lang.Object,java.lang.Object)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.put(java.lang.Object,java.lang.Object)",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic V put(final K key, final V value) {\n    final Object convertedKey = convertKey(key);\n    final int hashCode = hash(convertedKey);\n    final int index = hashIndex(hashCode, data.length);\n    HashEntry<K, V> entry = data[index];\n    while (entry != null) {\n        if (entry.hashCode == hashCode && isEqualKey(convertedKey, entry.key)) {\n            final V oldValue = entry.getValue();\n            updateEntry(entry, value);\n            return oldValue;\n        }\n        entry = entry.next;\n    }\n    addMapping(index, hashCode, key, value);\n    return null;\n}",
+      "javadoc" : "/**\n * Puts a key-value mapping into this map.\n *\n * @param key  the key to add\n * @param value  the value to add\n * @return the value previously mapped to this key, null if none\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.LRUMap",
+      "methodName" : "maxSize",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.LRUMap.maxSize()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int maxSize() {\n    return maxSize;\n}",
+      "javadoc" : "/**\n * Gets the maximum size of the map (the bound).\n *\n * @return the maximum number of elements the map can hold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "containsKey",
+      "methodSignature" : "(java.lang.Object)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.containsKey(java.lang.Object)",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic boolean containsKey(Object key) {\n    key = convertKey(key);\n    final int hashCode = hash(key);\n    // no local for hash index\n    HashEntry<K, V> entry = data[hashIndex(hashCode, data.length)];\n    while (entry != null) {\n        if (entry.hashCode == hashCode && isEqualKey(key, entry.key)) {\n            return true;\n        }\n        entry = entry.next;\n    }\n    return false;\n}",
+      "javadoc" : "/**\n * Checks whether the map contains the specified key.\n *\n * @param key  the key to search for\n * @return true if the map contains the key\n */\n"
+    } ],
+    "sourceCode" : "@Test\n@SuppressWarnings(\"unchecked\")\nvoid testRemoveLRUBlocksRemove() {\n    final MockLRUMapSubclassBlocksRemove<K, V> map = new MockLRUMapSubclassBlocksRemove<>(2, false);\n    assertEquals(0, map.size());\n    map.put((K) \"A\", (V) \"a\");\n    assertEquals(1, map.size());\n    map.put((K) \"B\", (V) \"b\");\n    assertEquals(2, map.size());\n    // should remove oldest, which is A=a, but this is blocked\n    map.put((K) \"C\", (V) \"c\");\n    assertEquals(3, map.size());\n    assertEquals(2, map.maxSize());\n    assertTrue(map.containsKey(\"A\"));\n    assertTrue(map.containsKey(\"B\"));\n    assertTrue(map.containsKey(\"C\"));\n}",
+    "javadoc" : ""
+  }, {
+    "className" : "org.apache.commons.collections4.map.LRUMapTest",
+    "methodName" : "testRemoveLRUBlocksRemoveScan",
+    "methodSignature" : "()",
+    "id" : "org.apache.commons.collections4.map.LRUMapTest.testRemoveLRUBlocksRemoveScan()",
+    "shortestPath" : [ {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateNewCapacity",
+      "methodSignature" : "(int)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateNewCapacity(int)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateNewCapacity(final int proposedCapacity) {\n    int newCapacity = 1;\n    if (proposedCapacity > MAXIMUM_CAPACITY) {\n        newCapacity = MAXIMUM_CAPACITY;\n    } else {\n        while (newCapacity < proposedCapacity) {\n            // multiply by two\n            newCapacity <<= 1;\n        }\n        if (newCapacity > MAXIMUM_CAPACITY) {\n            newCapacity = MAXIMUM_CAPACITY;\n        }\n    }\n    return newCapacity;\n}",
+      "javadoc" : "/**\n * Calculates the new capacity of the map.\n * This implementation normalizes the capacity to a power of two.\n *\n * @param proposedCapacity  the proposed capacity\n * @return the normalized new capacity\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "calculateThreshold",
+      "methodSignature" : "(int,float)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.calculateThreshold(int,float)",
+      "children" : [ ],
+      "sourceCode" : "protected int calculateThreshold(final int newCapacity, final float factor) {\n    return (int) (newCapacity * factor);\n}",
+      "javadoc" : "/**\n * Calculates the new threshold of the map, where it will be resized.\n * This implementation uses the load factor.\n *\n * @param newCapacity  the new capacity\n * @param factor  the load factor\n * @return the new resize threshold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractLinkedMap",
+      "methodName" : "init",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractLinkedMap.init()",
+      "children" : [ ],
+      "sourceCode" : "@Override\nprotected void init() {\n    header = createEntry(null, -1, null, null);\n    header.before = header.after = header;\n}",
+      "javadoc" : "/**\n * Initialize this subclass during construction.\n * <p>\n * Note: As from v3.2 this method calls\n * {@link #createEntry(HashEntry, int, Object, Object)} to create\n * the map entry object.\n * </p>\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "size",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.size()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int size() {\n    return size;\n}",
+      "javadoc" : "/**\n * Gets the size of the map.\n *\n * @return the size\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "put",
+      "methodSignature" : "(java.lang.Object,java.lang.Object)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.put(java.lang.Object,java.lang.Object)",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic V put(final K key, final V value) {\n    final Object convertedKey = convertKey(key);\n    final int hashCode = hash(convertedKey);\n    final int index = hashIndex(hashCode, data.length);\n    HashEntry<K, V> entry = data[index];\n    while (entry != null) {\n        if (entry.hashCode == hashCode && isEqualKey(convertedKey, entry.key)) {\n            final V oldValue = entry.getValue();\n            updateEntry(entry, value);\n            return oldValue;\n        }\n        entry = entry.next;\n    }\n    addMapping(index, hashCode, key, value);\n    return null;\n}",
+      "javadoc" : "/**\n * Puts a key-value mapping into this map.\n *\n * @param key  the key to add\n * @param value  the value to add\n * @return the value previously mapped to this key, null if none\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.LRUMap",
+      "methodName" : "maxSize",
+      "methodSignature" : "()",
+      "id" : "org.apache.commons.collections4.map.LRUMap.maxSize()",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic int maxSize() {\n    return maxSize;\n}",
+      "javadoc" : "/**\n * Gets the maximum size of the map (the bound).\n *\n * @return the maximum number of elements the map can hold\n */\n"
+    }, {
+      "className" : "org.apache.commons.collections4.map.AbstractHashedMap",
+      "methodName" : "containsKey",
+      "methodSignature" : "(java.lang.Object)",
+      "id" : "org.apache.commons.collections4.map.AbstractHashedMap.containsKey(java.lang.Object)",
+      "children" : [ ],
+      "sourceCode" : "@Override\npublic boolean containsKey(Object key) {\n    key = convertKey(key);\n    final int hashCode = hash(key);\n    // no local for hash index\n    HashEntry<K, V> entry = data[hashIndex(hashCode, data.length)];\n    while (entry != null) {\n        if (entry.hashCode == hashCode && isEqualKey(key, entry.key)) {\n            return true;\n        }\n        entry = entry.next;\n    }\n    return false;\n}",
+      "javadoc" : "/**\n * Checks whether the map contains the specified key.\n *\n * @param key  the key to search for\n * @return true if the map contains the key\n */\n"
+    } ],
+    "sourceCode" : "@Test\n@SuppressWarnings(\"unchecked\")\nvoid testRemoveLRUBlocksRemoveScan() {\n    final MockLRUMapSubclassBlocksRemove<K, V> map = new MockLRUMapSubclassBlocksRemove<>(2, true);\n    assertEquals(0, map.size());\n    map.put((K) \"A\", (V) \"a\");\n    assertEquals(1, map.size());\n    map.put((K) \"B\", (V) \"b\");\n    assertEquals(2, map.size());\n    // should remove oldest, which is A=a, but this is blocked\n    map.put((K) \"C\", (V) \"c\");\n    assertEquals(3, map.size());\n    assertEquals(2, map.maxSize());\n    assertTrue(map.containsKey(\"A\"));\n    assertTrue(map.containsKey(\"B\"));\n    assertTrue(map.containsKey(\"C\"));\n}",
+    "javadoc" : ""
+  } ]
+}
